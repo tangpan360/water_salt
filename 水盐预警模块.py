@@ -68,11 +68,10 @@ for i in nvar:
 
 #>>>>>>>>> 预警弹窗 >>>>>>>>>
 
-# 设置窗口居中显示函数 center_window(root, width, height)
-
 import tkinter as tk
 from tkinter import Label
 
+# 设置窗口居中显示函数 center_window(root, width, height)
 def center_window(root, width, height):
     screenwidth = root.winfo_screenwidth()
     screenheight = root.winfo_screenheight()
