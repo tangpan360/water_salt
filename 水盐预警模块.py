@@ -66,12 +66,38 @@ for i in nvar:
 
 
 
+#>>>>>>>>> 预警弹窗 >>>>>>>>>
 
+# 设置窗口居中显示函数 center_window(root, width, height)
 
+import tkinter as tk
+from tkinter import Label
 
+def center_window(root, width, height):
+    screenwidth = root.winfo_screenwidth()
+    screenheight = root.winfo_screenheight()
+    size = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
+    print(size)
+    root.geometry(size)
+    root.update()
+    print(root.winfo_x())
 
+root = tk.Tk()
+root.title('预警信息')
+root.wm_attributes('-topmost',1)  # 置顶窗口
+center_window(root, 500, 80)
+txt = Label(root, text = "\n\n{}年{}月{}日, 水流变化剧烈，请注意防护。\n\n".format(date, month, day)).pack()  # 窗口显示具体提示内容
+root.mainloop()
 
+# 弹窗代码参考连接1：https://blog.csdn.net/dhjabc_1/article/details/105428853?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166316153316782412548863%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166316153316782412548863&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-105428853-null-null.142^v47^pc_rank_34_1,201^v3^control_2&utm_term=tkinter%E7%AA%97%E5%8F%A3%E5%BC%B9%E5%87%BA%E4%BD%8D%E7%BD%AE&spm=1018.2226.3001.4187
+# 弹窗代码参考链接2：https://jingyan.baidu.com/article/a378c960ce4f02f229283047.html
 
+# from tkinter import *
 
+# win = Tk()
+# win.title("预警信息")
 
+# txt = Label(win, text = "\n\n{}年{}月{}日,水流变化剧烈，请注意防护。\n\n".format(date, month, day)).pack()
+# win.mainloop()
 
+#<<<<<<<<< 预警弹窗 <<<<<<<<<
